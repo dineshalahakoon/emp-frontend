@@ -1,3 +1,5 @@
+
+<app-nav></app-nav>
 <div class="container mt-5">
     <h2 class="text-center mb-4 bg-black p-4 text-white fw-bolder">Add Employee</h2>
     <div class="input-group mb-3">
@@ -25,13 +27,19 @@
       </div>
 
       <div class="input-group mb-3">
-        <select class="form-select"  [(ngModel)]="employee.roleId"aria-label="Default select example">
+        <select  class="form-select" aria-label="Default select example" id="role" [(ngModel)]="employee.roleId" >
             <option selected>Role</option>
             <option value="level 1">level 1</option>
             <option value="level 2">level 2</option>
             <option value="level 3">level 3</option>
           </select>
       </div>
+
+
+     
+
+
+      
       <button type="button" class="btn btn-success"(click)="AddEmployee()">Add Employee</button>
       
       
