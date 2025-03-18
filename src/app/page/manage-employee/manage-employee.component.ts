@@ -17,7 +17,7 @@ export class ManageEmployeeComponent {
     lastName:undefined,
     email:undefined,
     departmentId:undefined,
-    roleID:undefined
+    roleId:undefined
   
     }
 

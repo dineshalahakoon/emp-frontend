@@ -18,18 +18,18 @@
       <div class="input-group mb-3">
         <select class="form-select"  [(ngModel)]="employee.departmentId"aria-label="Default select example">
             <option selected>Department</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option value="it department ">It department</option>
+            <option value="maintanance department">maintanance department</option>
+            <option value="HR department">HR department</option>
           </select>
       </div>
 
       <div class="input-group mb-3">
-        <select class="form-select"  [(ngModel)]="employee.roleID"aria-label="Default select example">
+        <select class="form-select"  [(ngModel)]="employee.roleId"aria-label="Default select example">
             <option selected>Role</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option value="level 1">level 1</option>
+            <option value="level 2">level 2</option>
+            <option value="level 3">level 3</option>
           </select>
       </div>
       <button type="button" class="btn btn-success"(click)="AddEmployee()">Add Employee</button>
