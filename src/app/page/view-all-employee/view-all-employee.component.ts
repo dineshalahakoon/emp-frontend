@@ -19,11 +19,12 @@ export class ViewAllEmployeeComponent {
 
 
   public selectedEmployee={
-    id:"",
-    name:"",
-    email:"",
-    department:"",
-    role:""
+    id:null,
+    fristName:null,
+    lastName:null,
+    email:null,
+    departmentId:null,
+    roleId:null
   };
 
   constructor(private http:HttpClient){
@@ -67,21 +68,32 @@ export class ViewAllEmployeeComponent {
   }
 
   updateEmployee(employee:any){
-  
 
-    this.selectedEmployee={
-      id:employee.id,
-      name:employee.fristName+" "+employee.lastName,
-      email:employee.email,
-      department:employee.departmentId,
-      role:employee.roleId
-    };
 
-    console.log(employee);
 
+    // this.selectedEmployee={
+    //   id:employee.id,
+    //   fristName:employee.fristName,
+    //   lastName:employee.lastName,
+    //   email:employee.email,
+    //   department:employee.departmentId,
+    //   role:employee.roleId
+    // };
 
     
 
+if(employee!=null){
+  this.selectedEmployee=employee;
+}
+console.log(employee);
+
+  }
+
+  saveUpdateEmployee(){
+    this.http.put("http://localhost:8080/emp-controller/update-employee",this.selectedEmployee).subscribe(res=>{
+      console.log(res);   
+      this.loadEmployeTable()
+    })
   }
 
 }
