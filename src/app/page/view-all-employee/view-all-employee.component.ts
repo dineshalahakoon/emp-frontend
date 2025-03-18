@@ -90,10 +90,33 @@ console.log(employee);
   }
 
   saveUpdateEmployee(){
-    this.http.put("http://localhost:8080/emp-controller/update-employee",this.selectedEmployee).subscribe(res=>{
-      console.log(res);   
-      this.loadEmployeTable()
-    })
+    Swal.fire({
+      title: "Do you want to save the changes?",
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Save",
+      denyButtonText: `Don't save`
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+
+
+        this.http.put("http://localhost:8080/emp-controller/update-employee",this.selectedEmployee).subscribe(res=>{
+          console.log(res);   
+          this.loadEmployeTable()
+        })
+
+
+
+        Swal.fire("Saved!", "", "success");
+      } else if (result.isDenied) {
+        Swal.fire("Changes are not saved", "", "info");
+      }
+    });
+
+
+
+
   }
 
 }
