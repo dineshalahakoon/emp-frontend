@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './add-employee.component.html',
   styleUrl: './add-employee.component.css'
-})
+})    
 export class AddEmployeeComponent {
 
 }
