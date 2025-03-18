@@ -13,7 +13,18 @@ import { NavComponent } from '../../common/nav/nav.component';
 })
 export class ViewAllEmployeeComponent {
 
+  
+
   public employeeList:any;
+
+
+  public selectedEmployee={
+    id:"",
+    name:"",
+    email:"",
+    department:"",
+    role:""
+  };
 
   constructor(private http:HttpClient){
     this.loadEmployeTable()
@@ -53,6 +64,24 @@ export class ViewAllEmployeeComponent {
               console.log(employee)
       }
     });
+  }
+
+  updateEmployee(employee:any){
+  
+
+    this.selectedEmployee={
+      id:employee.id,
+      name:employee.fristName+" "+employee.lastName,
+      email:employee.email,
+      department:employee.departmentId,
+      role:employee.roleId
+    };
+
+    console.log(employee);
+
+
+    
+
   }
 
 }
