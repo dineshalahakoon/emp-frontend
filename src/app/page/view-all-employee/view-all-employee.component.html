@@ -17,8 +17,8 @@
            <td>{{"emp-"+employee.id}}</td>
            <td>{{employee.fristName+"  "+employee.lastName}}</td>
            <td>{{employee.email}}</td>
-           <td>{{employee.departmentId}}</td>
-           <td>{{employee.roleId}}</td>
+           <td>{{getDepartmentNames(employee.departmentlist)}}</td>
+           <td>{{employee.role.name}}</td>
            <td><button class="btn btn-danger"(click)="deleteEmployee(employee)"><i class="bi bi-trash3"></i></button></td>
            <td><button (click)="updateEmployee(employee)" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary" ><i class="bi bi-pencil-square"></i></button></td>
        

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
@@ -31,8 +31,19 @@ export class ViewAllEmployeeComponent {
     this.loadEmployeTable()
   }
 
+  getDepartmentNames(departmentList:any[]):string{
+    return departmentList.map(dept=>dept.name).join(', ');
+    
+  }
+
   loadEmployeTable(){
-    this.http.get("http://localhost:8080/emp-controller/get-all").subscribe(res=>{
+
+    const headers = new HttpHeaders({
+      'Content-Type':'Application/json',
+      'Authorization':'amFuZV9kb2U6c2VjdXJlNDU2a'
+    });
+
+    this.http.get("http://localhost:8080/emp-controller/get-all",{headers}).subscribe(res=>{
         this.employeeList=res;
         console.log(res)
 
@@ -41,6 +52,10 @@ export class ViewAllEmployeeComponent {
 
   }
   deleteEmployee(employee:any){
+    const headers = new HttpHeaders({
+      'Content-Type':'Application/json',
+      'Authorization':'amFuZV9kb2U6c2VjdXJlNDU2a'
+    });
 
     Swal.fire({
       title: "Are you sure?",
@@ -52,7 +67,7 @@ export class ViewAllEmployeeComponent {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        this.http.delete(`http://localhost:8080/emp-controller/delete-emp/${employee.id}`,{responseType:'text'}).subscribe(res=>{
+        this.http.delete(`http://localhost:8080/emp-controller/delete-emp/${employee.id}`,{responseType:'text',headers}).subscribe(res=>{
           this.loadEmployeTable()
              Swal.fire({
           title: "Deleted!",
