@@ -1,0 +1,69 @@
+<app-nav></app-nav>
+<div class="container mt-5">
+  <h2 class="text-center mb-4 bg-black p-4 text-white fw-bolder">Add Department</h2>
+
+  <div class="input-group mb-3">
+    <input type="text" id="employee-id" class="form-control" [(ngModel)]="department.employe1.id"
+      placeholder="employee Id" aria-label="Email" aria-describedby="basic-addon2">
+
+  </div>
+
+
+  <button type="button" class="btn btn-primary" (click)="FindEmployee()">serch employee</button>
+  <div class="input-group mb-3">
+
+
+    <table class="table border ">
+      <tr class="boeder text-center bg-black text-white">
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th></th>
+      </tr>
+
+      <tr>
+
+        <td>{{empName}}</td>
+        <td>{{empEmail}}</td>
+        <td>{{empRole}}</td>
+
+      </tr>
+
+    </table>
+
+    <select class="form-select mt-5" [(ngModel)]="department.name" aria-label="Default select example">
+      <option selected>Department</option>
+      <option value="it department ">It department</option>
+      <option value="maintanance department">maintanance department</option>
+      <option value="HR department">HR department</option>
+    </select>
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"></span>
+    <input type="text" class="form-control" [(ngModel)]="department.description" placeholder="description"
+      aria-label="Lastname" aria-describedby="basic-addon1">
+  </div>
+  <button type="button" class="btn btn-success" (click)="AddDEpartment()">Add Deprtment</button>
+
+  
+  <div class="container">
+    <div class="row">
+        <div class="col-2 "></div>
+        <div class="col-10 ">
+          <table class="table border">
+            <tr class="border text-center bg-black text-white">
+              <th>Department Name</th>
+              <th>Description</th>
+            </tr>
+          
+            <tr *ngFor="let obj of departmentList">
+              <td>{{ obj.name }}</td>
+              <td>{{ obj.description }}</td>
+            </tr>
+          </table>
+        </div>
+    </div>
+</div>
+
+</div>

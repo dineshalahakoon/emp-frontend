@@ -29,8 +29,8 @@ export class ManageEmployeeComponent {
     email:undefined,
     departmentlist:[
       {
-        name:"",
-        description:"",
+        name:undefined,
+        description:undefined,
         employee:{
           id:this.empId,
         }

@@ -32,7 +32,7 @@ export class ViewAllEmployeeComponent {
   }
 
   getDepartmentNames(departmentList:any[]):string{
-    return departmentList.map(dept=>dept.name).join(', ');
+    return departmentList.map(dept=>dept.name).join('  , ');
     
   }
 
